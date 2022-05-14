@@ -16,6 +16,7 @@ import { DghistoryComponent } from '../../dghistory/dghistory.component';
 import { ConsumptionNewComponent } from '../../consumption-new/consumption-new.component';
 import { PowerQuilityComponent } from '../../power-quility/power-quility.component';
 import { DgPowerconsumptionComponent } from 'src/app/dg-powerconsumption/dg-powerconsumption.component';
+import { DgStatusHistoryComponent } from 'src/app/dg-status-history/dg-status-history.component';
 
 export const AdminLayoutRoutes: Routes = [
    // { path: 'dashboard',      component: DashboardComponent },
@@ -32,7 +33,8 @@ export const AdminLayoutRoutes: Routes = [
     { path:'dghistory',component:DghistoryComponent,canActivate: [AuthGuard]},
     { path:'Consumption_All',component:ConsumptionNewComponent,canActivate: [AuthGuard]},
     { path:'meterpowerquilty',component:PowerQuilityComponent,canActivate: [AuthGuard]},
-    { path:'dgconsumption',component:DgPowerconsumptionComponent,canActivate: [AuthGuard]}
+    { path:'dgconsumption',component:DgPowerconsumptionComponent,canActivate: [AuthGuard]},
+    { path:'dgstatus',component:DgStatusHistoryComponent,canActivate: [AuthGuard]}
 
     // { path:'Dash',component:EnergyUsedComponent /meterpowerquilty}
 ];

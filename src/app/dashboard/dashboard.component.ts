@@ -111,8 +111,8 @@ export class DashboardComponent implements OnInit {
   }
   showData()
   {
-    var fDate         = this.dateValue.toISOString();
-    var tDate         = this.dateValue1.toISOString();
+    var fDate         = this.datepipe.transform(this.dateValue, 'yyyy-MM-dd HH:mm:ss');
+    var tDate         = this.datepipe.transform(this.dateValue1, 'yyyy-MM-dd HH:mm:ss');
     const data = {
       machineno             : this.metername,
       start_date            : fDate,
@@ -137,7 +137,7 @@ export class DashboardComponent implements OnInit {
        var len1    = mqttda.length - 1;
        this.main_66kv.push(parseFloat(mqttda[len1].em2_energy)+parseFloat(mqttda[len1].em3_energy))
        this.main_66kv.push(parseFloat(mqttda[len-2].em2_energy)+parseFloat(mqttda[len-2].em3_energy))
-       this.main_11kv.push(parseFloat(mqttda[len1].em4_energy)+parseFloat(mqttda[len1].em5_energy)+parseFloat(mqttda[len1].em7_energy)+parseFloat(mqttda[len1].em8_energy)+parseFloat(mqttda[len1].em9_energy)+parseFloat(mqttda[len1].em11_energy)+parseFloat(mqttda[len1].em12_energy)+parseFloat(mqttda[len1].em13_energy))
+       this.main_11kv.push((parseFloat(mqttda[len1].em4_energy)+parseFloat(mqttda[len1].em5_energy)+parseFloat(mqttda[len1].em7_energy)+parseFloat(mqttda[len1].em8_energy)+parseFloat(mqttda[len1].em9_energy)+parseFloat(mqttda[len1].em11_energy)+parseFloat(mqttda[len1].em12_energy)+parseFloat(mqttda[len1].em13_energy)))
        this.main_11kv.push(parseFloat(mqttda[len-2].em4_energy)+parseFloat(mqttda[len-2].em5_energy)+parseFloat(mqttda[len-2].em7_energy)+parseFloat(mqttda[len-2].em8_energy)+parseFloat(mqttda[len-2].em9_energy)+parseFloat(mqttda[len-2].em11_energy)+parseFloat(mqttda[len-2].em12_energy)+parseFloat(mqttda[len-2].em13_energy))       
        this.main_pcc1.push(parseFloat(mqttda[len1].em14_energy)+parseFloat(mqttda[len1].em15_energy)+parseFloat(mqttda[len1].em16_energy)+parseFloat(mqttda[len1].em17_energy)+parseFloat(mqttda[len1].em18_energy)+parseFloat(mqttda[len1].em19_energy)+parseFloat(mqttda[len1].em20_energy)+parseFloat(mqttda[len1].em21_energy)+parseFloat(mqttda[len1].em22_energy)+parseFloat(mqttda[len1].em23_energy)+parseFloat(mqttda[len1].em24_energy)+parseFloat(mqttda[len1].em25_energy))
        this.main_pcc1.push(parseFloat(mqttda[len-2].em14_energy)+parseFloat(mqttda[len-2].em15_energy)+parseFloat(mqttda[len-2].em16_energy)+parseFloat(mqttda[len-2].em17_energy)+parseFloat(mqttda[len-2].em18_energy)+parseFloat(mqttda[len-2].em19_energy)+parseFloat(mqttda[len-2].em20_energy)+parseFloat(mqttda[len-2].em21_energy)+parseFloat(mqttda[len-2].em22_energy)+parseFloat(mqttda[len-2].em23_energy)+parseFloat(mqttda[len-2].em24_energy)+parseFloat(mqttda[len-2].em25_energy))
@@ -145,7 +145,7 @@ export class DashboardComponent implements OnInit {
        this.main_pcc2.push(parseFloat(mqttda[len-2].em28_energy)+parseFloat(mqttda[len-2].em29_energy)+parseFloat(mqttda[len-2].em30_energy)+parseFloat(mqttda[len-2].em31_energy)+parseFloat(mqttda[len-2].em32_energy)+parseFloat(mqttda[len-2].em33_energy)+parseFloat(mqttda[len-2].em36_energy)+parseFloat(mqttda[len-2].em37_energy)+parseFloat(mqttda[len-2].em38_energy))
        this.main_pcc3.push(parseFloat(mqttda[len1].em40_energy)+parseFloat(mqttda[len1].em41_energy)+parseFloat(mqttda[len1].em42_energy)+parseFloat(mqttda[len1].em45_energy)+parseFloat(mqttda[len1].em46_energy)+parseFloat(mqttda[len1].em47_energy)+parseFloat(mqttda[len1].em48_energy))
        this.main_pcc3.push(parseFloat(mqttda[len-2].em40_energy)+parseFloat(mqttda[len-2].em41_energy)+parseFloat(mqttda[len-2].em42_energy)+parseFloat(mqttda[len-2].em45_energy)+parseFloat(mqttda[len-2].em46_energy)+parseFloat(mqttda[len-2].em47_energy)+parseFloat(mqttda[len-2].em48_energy))
-      // console.log(this.meter_data)
+      console.log(this.main_11kv)
        for (var i = 0; i < len; i++) {
          arr.push(this.datepipe.transform(mqttda[i].em_date, 'dd-MM-yy'));
          if(len1==i || (len-2)==i)
@@ -266,7 +266,7 @@ export class DashboardComponent implements OnInit {
          ]
        };
      
-      console.log(this.chartOptions1)
+      //console.log(this.chartOptions1)
     })
   }
   ngOnDestroy() {

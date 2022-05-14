@@ -16,6 +16,7 @@ export const ROUTES: RouteInfo[] = [
     // { path: '/maintenace', title: 'Fault Summary',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/faulthistory', title: 'Fault History',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/Consumption', title: 'Consumption',  icon: 'ni-tv-2 text-primary', class: '' },
+    { path: '/dgstatus', title: 'Dg OprationalReport',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/dghistory', title: 'DG-History',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/meterpowerquilty', title: 'MeterWise Power Quality',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/dgconsumption', title: 'Dg Power Consumption',  icon: 'ni-tv-2 text-primary', class: '' }

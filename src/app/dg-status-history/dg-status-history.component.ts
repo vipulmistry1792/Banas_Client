@@ -37,12 +37,14 @@ import {
 } from 'ag-grid-community';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
 @Component({
-  selector: 'app-faulthistory',
-  templateUrl: './faulthistory.component.html',
-  styleUrls: ['./faulthistory.component.css']
+  selector: 'app-dg-status-history',
+  templateUrl: './dg-status-history.component.html',
+  styleUrls: ['./dg-status-history.component.css']
 })
-export class FaulthistoryComponent implements OnInit {
+export class DgStatusHistoryComponent implements OnInit {
+
   public processdatamapperJson: EnergyData[];
   public datasets                   : any;
   public data                       : any;
@@ -51,7 +53,7 @@ export class FaulthistoryComponent implements OnInit {
   dateValue                         = new Date();
   dateValue1                        = new Date();
   public id ;
-  metername="em1"
+  metername="DG-1"
   public univarsalDateFormat        = 'yyyy-MM-dd HH:mm:ss';
   public machine_data               = [];
   public loading                    : boolean;
@@ -68,10 +70,11 @@ export class FaulthistoryComponent implements OnInit {
   Timedata: EnergyData[];
   //highcharts
   columnDefs: ColDef[] = [
-    { headerName: "TimeStamp", field: 'dateTime', sortable: true, filter: true, resizable: true },
-    { headerName: "Equipmemnt Group",field: 'equipment_group' , sortable: true, filter: true, resizable: true},
-    { headerName: "Equipment Name",field: 'equipment_name', sortable: true, filter: true, resizable: true},
-    { headerName: "FaultName",field: 'faultname', sortable: true, filter: true, resizable: true}
+    { headerName: "DGName", field: 'DGName', sortable: true, filter: true, resizable: true },
+    { headerName: "Status",field: 'Status' , sortable: true, filter: true, resizable: true},
+    { headerName: "TimeStamp",field: 'TimeStamp', sortable: true, filter: true, resizable: true},
+    { headerName: "EndTime",field: 'EndTime', sortable: true, filter: true, resizable: true},
+    { headerName: "Duration",field: 'Duration', sortable: true, filter: true, resizable: true}
 ];
 
 
@@ -110,7 +113,7 @@ export class FaulthistoryComponent implements OnInit {
       start_date            : fDate,
       end_date              : tDate
     };
-    this.timeseries.getfaultHisory(data)
+    this.timeseries.getDGstatus(data)
     .pipe(first())
     .subscribe(mqttda => {
       var arr     = [];
@@ -131,4 +134,5 @@ export class FaulthistoryComponent implements OnInit {
       clearInterval(this.id);
     }
   }
+
 }

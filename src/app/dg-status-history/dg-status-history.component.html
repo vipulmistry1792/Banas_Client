@@ -7,6 +7,19 @@
             <div class="card card-stats mb-4 mb-xl-0">
               <div class="card-body">
                 <div class="row">
+                      <div class="form-group">
+                        <div class="input-group input-group-alternative mb-3">
+                          <label for="dateValue" class="form-control">DG : </label>
+                          <select class="form-control" placeholder="MachineName" [(ngModel)]='metername' id="metername" name="metername" >
+                            <option  value="DG-1">DG-1</option>
+                            <option  value="DG-2">DG-2</option>
+                            <option  value="DG-3">DG-3</option>
+                        </select>
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                          </div>
+                        </div>
+                      </div>&nbsp;&nbsp;&nbsp;&nbsp;
                   <div class="form-group">
                     <div class="input-group input-group-alternative mb-3">
                       <label for="dateValue" class="form-control">From : </label>
@@ -42,8 +55,8 @@
         </div>
       </div>
     </div>
-</div>
-<div class="container-fluid mt--7">
+  </div>
+  <div class="container-fluid mt--7">
     <div class="row mt-5">
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5 mb-xl-0" *ngIf="faultdata">
         <div class="card shadow">
@@ -106,4 +119,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>s

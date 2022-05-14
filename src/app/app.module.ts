@@ -34,7 +34,8 @@ import { DghistoryComponent } from './dghistory/dghistory.component';
 import { ConsumptionNewComponent } from './consumption-new/consumption-new.component';
 import { PowerQuilityComponent } from './power-quility/power-quility.component';
 import { DgPowerconsumptionComponent } from './dg-powerconsumption/dg-powerconsumption.component';
-
+import { AgGridModule } from 'ag-grid-angular';
+import { DgStatusHistoryComponent } from './dg-status-history/dg-status-history.component';
 // Pass the fusioncharts library and chart modules
 FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
 @NgModule({
@@ -54,6 +55,7 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
     NgxEchartsModule.forRoot({
       echarts
     }),
+    AgGridModule.withComponents([]),
     FusionChartsModule,
     Daterangepicker
   ],
@@ -71,7 +73,8 @@ FusionChartsModule.fcRoot(FusionCharts, charts, FusionTheme);
     DghistoryComponent,
     ConsumptionNewComponent,
     PowerQuilityComponent,
-    DgPowerconsumptionComponent
+    DgPowerconsumptionComponent,
+    DgStatusHistoryComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

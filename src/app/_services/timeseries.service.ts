@@ -43,4 +43,7 @@ export class TimeseriesService {
   getDGConsumption (meterdata): Observable<any> {
     return this.http.post<any>(`${environment.apiUrl}/api/meterdata/dgcon`,meterdata);
   }
+  getDGstatus (meterdata): Observable<any> {
+    return this.http.post<any>(`${environment.apiUrl}/api/meterdata/dgstatus`,meterdata);
+  }
 }
